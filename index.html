@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fiesta — Business Management Suite</title>
+  <meta name="description" content="Fiesta: CRM, sales, inventory, purchases, accounting, HR and projects in one simple workspace.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Sign in -->
+  <div id="login" class="login" hidden>
+    <div class="login-card">
+      <div class="login-brand">
+        <svg width="44" height="44" viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="lg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8b5cf6"/><stop offset="1" stop-color="#ff6b6b"/></linearGradient></defs><rect width="32" height="32" rx="9" fill="url(#lg1)"/><path d="M16 6l2.6 6.4L25 13l-5 4.2L21.6 24 16 20.4 10.4 24 12 17.2 7 13l6.4-.6z" fill="#fff"/></svg>
+        <div><h1>Fiesta</h1><p>Run your whole business in one place</p></div>
+      </div>
+      <form id="loginForm" class="form-grid one">
+        <label class="field"><span>Email</span><input class="input" name="email" type="email" value="admin@fiesta.app" required autocomplete="username"></label>
+        <label class="field"><span>Password</span><input class="input" name="password" type="password" value="admin123" required autocomplete="current-password"></label>
+        <button class="btn primary block" type="submit">Sign in</button>
+        <button class="btn ghost block" type="button" id="demoBtn">Explore the demo</button>
+        <p class="hint" id="loginMsg">Demo login: admin@fiesta.app / admin123. Data stays in your browser.</p>
+      </form>
+    </div>
+  </div>
+
+  <!-- App shell -->
+  <div class="app" id="app" hidden>
+    <aside class="sidebar" id="sidebar" aria-label="Main navigation">
+      <a class="brand" href="#/dashboard">
+        <svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="lg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8b5cf6"/><stop offset="1" stop-color="#ff6b6b"/></linearGradient></defs><rect width="32" height="32" rx="9" fill="url(#lg2)"/><path d="M16 6l2.6 6.4L25 13l-5 4.2L21.6 24 16 20.4 10.4 24 12 17.2 7 13l6.4-.6z" fill="#fff"/></svg>
+        <span>Fiesta</span>
+      </a>
+      <nav id="nav"></nav>
+      <div class="side-foot"><span id="companyName"></span><small>Fiesta v1.0</small></div>
+    </aside>
+    <div class="scrim" id="scrim"></div>
+
+    <div class="main">
+      <header class="topbar">
+        <button class="icon-btn only-mobile" id="menuBtn" aria-label="Open menu"></button>
+        <div class="gsearch">
+          <div class="input-icon" id="searchIcon"><input class="input" id="gq" type="search" placeholder="Search everything…  ( press / )" autocomplete="off"></div>
+          <div class="dropdown results" id="gres" hidden></div>
+        </div>
+        <div class="spacer"></div>
+        <button class="icon-btn" id="themeBtn" aria-label="Toggle dark mode"></button>
+        <div class="menu-wrap">
+          <button class="icon-btn" id="bellBtn" aria-label="Notifications"><span class="dot" id="bellDot" hidden></span></button>
+          <div class="dropdown notes" id="notes" hidden></div>
+        </div>
+        <div class="menu-wrap">
+          <button class="avatar" id="userBtn" aria-label="Account menu"></button>
+          <div class="dropdown user-menu" id="userMenu" hidden>
+            <div class="um-head"><strong id="umName"></strong><small id="umMail"></small></div>
+            <a href="#/settings">Settings</a>
+            <button id="logoutBtn" type="button">Sign out</button>
+          </div>
+        </div>
+      </header>
+      <main id="view" class="view" tabindex="-1"></main>
+    </div>
+  </div>
+
+  <div id="modal-root"></div>
+  <div class="toasts" id="toasts" aria-live="polite"></div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
